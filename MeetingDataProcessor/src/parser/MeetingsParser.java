@@ -28,13 +28,15 @@ public class MeetingsParser {
 					.map(toInt->Integer.parseInt(toInt))
 					.findFirst().get();
 			
-			LocalDateTime startDate = Stream.of(fields[1])
-					.map(a->todate(a))
-					.findFirst().get();
+//			LocalDateTime startDate = Stream.of(fields[1])
+//					.map(a->todate(a))
+//					.findFirst().get();
+			LocalDateTime startDate = todate(fields[1]);
 			
-			LocalDateTime endDate = Stream.of(fields[2])
-					.map(a->todate(a))
-					.findFirst().get();
+//			LocalDateTime endDate = Stream.of(fields[2])
+//					.map(a->todate(a))
+//					.findFirst().get();
+			LocalDateTime endDate = todate(fields[2]);
 			
 			Meeting meeting =new Meeting(id, startDate, endDate);
 			for(int i=3;i<=(fields.length-1);i++){

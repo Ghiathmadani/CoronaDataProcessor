@@ -27,10 +27,11 @@ public class PersonsParser {
 		return fields -> {
             int id = Stream.of(fields[0]).map(toInt->Integer.parseInt(toInt)).findFirst().get();
 
-            LocalDateTime lastPositiveCheck = Stream.of(fields[1])
-//            		.filter(text->text.length() != 0)
-            		.map(a->todate(a))//LocalDateTime::parse
-                    .findFirst().get();
+//            LocalDateTime lastPositiveCheck = Stream.of(fields[1])
+////            		.filter(text->text.length() != 0)
+//            		.map(a->todate(a))//LocalDateTime::parse
+//                    .findFirst().get();
+            LocalDateTime lastPositiveCheck = todate(fields[1]);
             Person person =new Person(id);
             person.setLast_positive_check(lastPositiveCheck);
             return person;
